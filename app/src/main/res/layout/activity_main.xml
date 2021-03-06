@@ -14,6 +14,19 @@
         tools:layout_editor_absoluteY="-212dp">
 
         <EditText
+            android:id="@+id/value1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="100dp"
+            android:layout_marginLeft="100dp"
+            android:layout_marginTop="88dp"
+            android:ems="10"
+            android:inputType="textPersonName"
+            android:text="0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <EditText
             android:id="@+id/value2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -22,7 +35,7 @@
             android:layout_marginTop="160dp"
             android:ems="10"
             android:inputType="textPersonName"
-            android:text="value2"
+            android:text="0"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
@@ -89,19 +102,6 @@
             android:layout_marginLeft="96dp"
             android:layout_marginTop="352dp"
             android:text="/"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
-
-        <EditText
-            android:id="@+id/value1"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="100dp"
-            android:layout_marginLeft="100dp"
-            android:layout_marginTop="88dp"
-            android:ems="10"
-            android:inputType="textPersonName"
-            android:text="Name"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 

@@ -1,4 +1,4 @@
-package com.example.studykotlin
+package com.example.myapplication
 
 import android.os.Bundle
 import android.os.Parcel
@@ -6,47 +6,48 @@ import android.widget.Button
 import android.widget.EditText
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
+import com.example.studykotlin.R
 
 class MainActivity() : AppCompatActivity(){
+    constructor(parcel: Parcel) : this() {
+    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        val button1 : Button = findViewById(R.id.button)
-        val button2 : Button = findViewById(R.id.button2)
-        val button3 : Button = findViewById(R.id.button3)
-        val button4 : Button = findViewById(R.id.button4)
-
         val text : TextView = findViewById(R.id.textView)
         val edit1 : EditText = findViewById(R.id.value1)
         val edit2 : EditText = findViewById(R.id.value2)
 
-        val str1 = edit1.text.toString()
-        val str2 = edit2.text.toString()
+        val button1 : Button = findViewById(R.id.button)
+        val button2 : Button = findViewById(R.id.button2)
+        val button3 : Button = findViewById(R.id.button3)
+        val button4 : Button = findViewById(R.id.button4)
+        val button5 : Button = findViewById(R.id.button5)
 
-        val num1 : Int = Integer.parseInt(str1)
-        val num2 : Int = Integer.parseInt(str1)
+        var result = 0
 
         button2.setOnClickListener{
-            sum(num1, num2)
-            text.setText(sum(num1, num2))
+            result = sum(edit1.text.toString().toInt(),edit2.text.toString().toInt())
         }
 
         button4.setOnClickListener{
-            text.setText(sub(num1, num2))
+            result = div(edit1.text.toString().toInt(),edit2.text.toString().toInt())
         }
 
         button3.setOnClickListener{
-            mul(num1, num2)
-            text.setText(mul(num1, num2))
+            result = mul(edit1.text.toString().toInt(),edit2.text.toString().toInt())
         }
 
         button4.setOnClickListener{
-            text.setText(div(num1, num2))
+            result = sub(edit1.text.toString().toInt(),edit2.text.toString().toInt())
         }
-    }
+        button5.setOnClickListener{
+            text.setText(result)
+        }
 
+    }
     fun sum(num1:Int, num2:Int): Int{
         return num1 + num2
     }
