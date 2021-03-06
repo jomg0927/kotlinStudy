@@ -2,13 +2,10 @@ package com.example.studykotlin
 
 import android.os.Bundle
 import android.view.View
-import androidx.appcompat.app.AppCompatActivity
-import androidx.databinding.DataBindingUtil
+import com.example.studykotlin.base.BaseActivity
 import com.example.studykotlin.databinding.ActivityMainBinding
 
-class MainActivity : AppCompatActivity() {
-
-    private lateinit var binding: ActivityMainBinding
+class MainActivity: BaseActivity<ActivityMainBinding>(R.layout.activity_main) {
 
     private var result: Int? = 0
 
@@ -39,7 +36,6 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-        binding = DataBindingUtil.setContentView(this, R.layout.activity_main)
 
         binding.plusButton.setOnClickListener(operatorListener)
         binding.minButton.setOnClickListener(operatorListener)
