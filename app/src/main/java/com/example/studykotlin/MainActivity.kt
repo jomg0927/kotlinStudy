@@ -11,40 +11,44 @@ class MainActivity : AppCompatActivity() {
 
     var text: TextView? = null
 
-    var button1: Button? = null
-    var button2: Button? = null
-    var button3: Button? = null
-    var button4: Button? = null
-    var button5: Button? = null
+    var plusButton: Button? = null
+    var minButton: Button? = null
+    var mulButton: Button? = null
+    var divButton: Button? = null
+    var yieldButton: Button? = null
 
-    val edit1: EditText? = null
-    val edit2: EditText? = null
+    var inputNum1: EditText? = null
+    var inputNum2: EditText? = null
 
     private var result: Int? = 0
 
     private val operatorListener = View.OnClickListener {
         when (it.id) {
-            R.id.button1 -> {
-                if (edit1 != null && edit2 != null) {
-                    result = sum(edit1.text.toString().toInt(), edit2.text.toString().toInt())
+            R.id.plus_button -> {
+                if (inputNum1 != null && inputNum2 != null) {
+                    result =
+                        sum(inputNum1?.text.toString().toInt(), inputNum2?.text.toString().toInt())
                 }
             }
-            R.id.button2 -> {
-                if (edit1 != null && edit2 != null) {
-                    result = sub(edit1.text.toString().toInt(), edit2.text.toString().toInt())
+            R.id.min_button -> {
+                if (inputNum1 != null && inputNum2 != null) {
+                    result =
+                        sub(inputNum1?.text.toString().toInt(), inputNum2?.text.toString().toInt())
                 }
             }
-            R.id.button3 -> {
-                if (edit1 != null && edit2 != null) {
-                    result = mul(edit1.text.toString().toInt(), edit2.text.toString().toInt())
+            R.id.mul_button -> {
+                if (inputNum1 != null && inputNum2 != null) {
+                    result =
+                        mul(inputNum1?.text.toString().toInt(), inputNum2?.text.toString().toInt())
                 }
             }
-            R.id.button4 -> {
-                if (edit1 != null && edit2 != null) {
-                    result = div(edit1.text.toString().toInt(), edit2.text.toString().toInt())
+            R.id.div_button -> {
+                if (inputNum1 != null && inputNum2 != null) {
+                    result =
+                        div(inputNum1?.text.toString().toInt(), inputNum2?.text.toString().toInt())
                 }
             }
-            R.id.button5 -> {
+            R.id.yield_button -> {
                 text?.text = result.toString()
             }
         }
@@ -54,19 +58,22 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        text = findViewById(R.id.textView)
+        text = findViewById(R.id.result)
 
-        button1 = findViewById(R.id.button1)
-        button2 = findViewById(R.id.button2)
-        button3 = findViewById(R.id.button3)
-        button4 = findViewById(R.id.button4)
-        button5 = findViewById(R.id.button5)
+        inputNum1 = findViewById(R.id.input1)
+        inputNum2 = findViewById(R.id.input2)
 
-        button1?.setOnClickListener(operatorListener)
-        button2?.setOnClickListener(operatorListener)
-        button3?.setOnClickListener(operatorListener)
-        button4?.setOnClickListener(operatorListener)
-        button5?.setOnClickListener(operatorListener)
+        plusButton = findViewById(R.id.plus_button)
+        minButton = findViewById(R.id.min_button)
+        mulButton = findViewById(R.id.mul_button)
+        divButton = findViewById(R.id.div_button)
+        yieldButton = findViewById(R.id.yield_button)
+
+        plusButton?.setOnClickListener(operatorListener)
+        minButton?.setOnClickListener(operatorListener)
+        mulButton?.setOnClickListener(operatorListener)
+        divButton?.setOnClickListener(operatorListener)
+        yieldButton?.setOnClickListener(operatorListener)
     }
 
     fun sum(num1: Int, num2: Int): Int {
